@@ -6,7 +6,7 @@ Created by <a href="https://github.com/Na-Z" target="_blank">Na Zhao</a> from
 
 ## Introduction
 This repository contains the PyTorch implementation for our CVPR 2021 Paper 
-"Few-shot 3D Point Cloud Semantic Segmentation" by Na Zhao, Tat-Seng Chua, Gim Hee Lee. 
+"[Few-shot 3D Point Cloud Semantic Segmentation](https://arxiv.org/pdf/2006.12052.pdf)" by Na Zhao, Tat-Seng Chua, Gim Hee Lee.
 
 Many existing approaches for point cloud semantic segmentation are fully supervised. These fully supervised approaches 
 heavily rely on a large amount of labeled training data that is difficult to obtain and can not generalize to unseen 
