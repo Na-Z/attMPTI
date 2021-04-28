@@ -14,14 +14,14 @@ class ScanNetDataset(object):
         self.classes = 21
         # self.class2type = {0:'unannotated', 1:'wall', 2:'floor', 3:'chair', 4:'table', 5:'desk', 6:'bed', 7:'bookshelf',
         #                    8:'sofa', 9:'sink', 10:'bathtub', 11:'toilet', 12:'curtain', 13:'counter', 14:'door',
-        #                    15:'window', 16:'shower curtain', 17:'refrigerator', 18:'picture', 19:'cabinet', 20:'otherfurniture'}
+        #                    15:'window', 16:'shower curtain', 17:'refridgerator', 18:'picture', 19:'cabinet', 20:'otherfurniture'}
         class_names = open(os.path.join(os.path.dirname(data_path), 'meta', 'scannet_classnames.txt')).readlines()
         self.class2type = {i: name.strip() for i, name in enumerate(class_names)}
         self.type2class = {self.class2type[t]: t for t in self.class2type}
         self.types = self.type2class.keys()
 
         self.fold_0 = ['bathtub', 'bed', 'bookshelf', 'cabinet', 'chair','counter', 'curtain', 'desk', 'door', 'floor']
-        self.fold_1 = ['otherfurniture', 'picture', 'refrigerator', 'shower curtain', 'sink', 'sofa', 'table', 'toilet', 'wall', 'window']
+        self.fold_1 = ['otherfurniture', 'picture', 'refridgerator', 'shower curtain', 'sink', 'sofa', 'table', 'toilet', 'wall', 'window']
 
         if cvfold == 0:
             self.test_classes = [self.type2class[i] for i in self.fold_0]

@@ -15,7 +15,7 @@ counter
 door
 window
 shower curtain
-refrigerator
+refridgerator
 picture
 cabinet
 otherfurniture
