@@ -44,7 +44,7 @@ It may work with newer versions, but that is not gauranteed.
    cd ./preprocess
    python collect_s3dis_data.py --data_path $path_to_S3DIS_raw_data
    ```
-   The generated numpy files are stored in `./datasets/S3DIS/scenes/` by default.
+   The generated numpy files are stored in `./datasets/S3DIS/scenes/data` by default.
 3. To split rooms into blocks, run 
 
     ```python ./preprocess/room2blocks.py --data_path ./datasets/S3DIS/scenes/```
@@ -59,7 +59,7 @@ It may work with newer versions, but that is not gauranteed.
 	cd ./preprocess
 	python collect_scannet_data.py --data_path $path_to_ScanNet_raw_data
 	```
-   The generated numpy files are stored in `./datasets/ScanNet/scenes/` by default.
+   The generated numpy files are stored in `./datasets/ScanNet/scenes/data` by default.
 3. To split rooms into blocks, run 
 
     ```python ./preprocess/room2blocks.py --data_path ./datasets/ScanNet/scenes/ --dataset scannet```

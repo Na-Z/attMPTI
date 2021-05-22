@@ -117,8 +117,8 @@ if __name__ == '__main__':
 
     DATA_PATH = args.data_path
     DST_PATH = os.path.join(ROOT_DIR, 'datasets/ScanNet')
-    SAVE_PATH = os.path.join(DST_PATH, 'scenes')
-    if not os.path.exists(SAVE_PATH): os.mkdir(SAVE_PATH)
+    SAVE_PATH = os.path.join(DST_PATH, 'scenes', 'data'))
+    if not os.path.exists(SAVE_PATH): os.makedirs(SAVE_PATH)
 
     meta_path = os.path.join(DST_PATH, 'meta')
     CLASS_NAMES = [x.rstrip() for x in open(os.path.join(meta_path, 'scannet_classnames.txt'))]

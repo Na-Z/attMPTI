@@ -67,8 +67,8 @@ if __name__ == '__main__':
     DATA_PATH = args.data_path
     folders = ["Area_1", "Area_2", "Area_3", "Area_4", "Area_5", "Area_6"]
     DST_PATH = os.path.join(ROOT_DIR, 'datasets/S3DIS')
-    SAVE_PATH = os.path.join(DST_PATH, 'scenes')
-    if not os.path.exists(SAVE_PATH): os.mkdir(SAVE_PATH)
+    SAVE_PATH = os.path.join(DST_PATH, 'scenes', 'data')
+    if not os.path.exists(SAVE_PATH): os.makedirs(SAVE_PATH)
 
     CLASS_NAMES = [x.rstrip() for x in open(os.path.join(ROOT_DIR, 'datasets/S3DIS/meta', 's3dis_classnames.txt'))]
     CLASS2LABEL = {cls: i for i, cls in enumerate(CLASS_NAMES)}
