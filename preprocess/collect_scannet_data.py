@@ -117,7 +117,7 @@ if __name__ == '__main__':
 
     DATA_PATH = args.data_path
     DST_PATH = os.path.join(ROOT_DIR, 'datasets/ScanNet')
-    SAVE_PATH = os.path.join(DST_PATH, 'scenes', 'data'))
+    SAVE_PATH = os.path.join(DST_PATH, 'scenes', 'data')
     if not os.path.exists(SAVE_PATH): os.makedirs(SAVE_PATH)
 
     meta_path = os.path.join(DST_PATH, 'meta')
