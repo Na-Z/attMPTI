@@ -141,6 +141,7 @@ def pretrain(args):
     best_iou = 0
     global_iter = 0
     for epoch in range(args.n_iters):
+        mode.train()
         for batch_idx, (ptclouds, labels) in enumerate(TRAIN_LOADER):
             if torch.cuda.is_available():
                 ptclouds = ptclouds.cuda()
@@ -163,6 +164,7 @@ def pretrain(args):
         if (epoch+1) % args.eval_interval == 0:
             pred_total = []
             gt_total = []
+            model.eval()
             with torch.no_grad():
                 for i, (ptclouds, labels) in enumerate(VALID_LOADER):
                     gt_total.append(labels.detach())
@@ -170,8 +172,6 @@ def pretrain(args):
                     if torch.cuda.is_available():
                         ptclouds = ptclouds.cuda()
                         labels = labels.cuda()
-
-                    model.eval()
 
                     logits = model(ptclouds)
                     loss = F.cross_entropy(logits, labels)
