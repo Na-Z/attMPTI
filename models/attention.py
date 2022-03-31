@@ -23,9 +23,9 @@ class SelfAttention(nn.Module):
 
         self.temperature = self.out_channel ** 0.5
 
-        self.q_map = nn.Conv1d(in_channel, out_channel, 1, bias=False)
-        self.k_map = nn.Conv1d(in_channel, out_channel, 1, bias=False)
-        self.v_map = nn.Conv1d(in_channel, out_channel, 1, bias=False)
+        self.q_map = nn.Conv1d(in_channel, self.out_channel, 1, bias=False)
+        self.k_map = nn.Conv1d(in_channel, self.out_channel, 1, bias=False)
+        self.v_map = nn.Conv1d(in_channel, self.out_channel, 1, bias=False)
 
         self.dropout = nn.Dropout(attn_dropout)
 
