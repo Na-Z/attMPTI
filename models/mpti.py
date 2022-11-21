@@ -149,7 +149,7 @@ class MultiPrototypeTransductiveInference(nn.Module):
             farthest_seeds = feat[fps_index]
 
             # compute the point-to-seed distance
-            distances = F.pairwise_distance(feat[..., None], farthest_seeds.transpose(0, 1)[None, ...],
+            distances = F.pairwise_distance(feat[:, None, :], farthest_seeds[None, :, :],
                                             p=2)  # (n_points, n_prototypes)
 
             # hard assignment for each point
@@ -247,15 +247,15 @@ class MultiPrototypeTransductiveInference(nn.Module):
         knn_feat = torch.gather(node_feat, dim=0, index=knn_idx).contiguous().view(self.num_nodes, k, self.feat_dim)
 
         if method == 'cosine':
-            knn_similarity = F.cosine_similarity(node_feat[:,None,:], knn_feat, dim=2)
+            knn_similarity = F.cosine_similarity(node_feat[:,None,:], knn_feat, dim=2).cuda()
         elif method == 'gaussian':
-            dist = F.pairwise_distance(node_feat[:,:,None], knn_feat.transpose(1,2), p=2)
-            knn_similarity = torch.exp(-0.5*(dist/self.sigma)**2)
+            dist = F.pairwise_distance(node_feat[:, None, :], knn_feat, p=2)
+            knn_similarity = torch.exp(-0.5*(dist/self.sigma)**2).cuda()
         else:
             raise NotImplementedError('Error! Distance computation method (%s) is unknown!' %method)
 
         A = torch.zeros(self.num_nodes, self.num_nodes, dtype=torch.float).cuda()
-        A = A.scatter_(1, I, knn_similarity)
+        A.scatter_(1, I, knn_similarity)
         A = A + A.transpose(0,1)
 
         identity_matrix = torch.eye(self.num_nodes, requires_grad=False).cuda()
