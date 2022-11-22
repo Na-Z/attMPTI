@@ -22,13 +22,16 @@ on two benchmark datasets.
 
 
 ## Installation
-- Install `python` --This repo is tested with `python 3.6.8`.
-- Install `pytorch` with CUDA -- This repo is tested with `torch 1.4.0`, `CUDA 10.1`. 
+- Install `python` --This repo is tested with `python 3.10`.
+- Install `pytorch` with CUDA -- This repo is tested with `torch 1.13.0`, `CUDA 11.1`. 
 It may work with newer versions, but that is not gauranteed.
 - Install `faiss` with cpu version
+	```
+	conda install faiss-cpu
+	```
 - Install 'torch-cluster' with the corrreponding torch and cuda version
 	```
-	pip install torch-cluster==latest+cu101 -f https://pytorch-geometric.com/whl/torch-1.5.0.html
+	pip install torch-cluster -c pyg
 	```
 - Install dependencies
     ```
@@ -71,17 +74,16 @@ It may work with newer versions, but that is not gauranteed.
 #### Training
 First, pretrain the segmentor which includes feature extractor module on the available training set:
     
-    cd scripts
-    bash pretrain_segmentor.sh
+    bash ./scripts/pretrain_segmentor.sh
 
 Second, train our method:
 	
-	bash train_attMPTI.sh
+	bash ./scripts/train_attMPTI.sh
 
 
 #### Evaluation
     
-    bash eval_attMPTI.sh
+    bash ./scripts/eval_attMPTI.sh
 
 Note that the above scripts are used for 2-way 1-shot on S3DIS (S^0). You can modified the corresponding hyperparameters to conduct experiments on other settings. 
 
