@@ -27,11 +27,11 @@ on two benchmark datasets.
 It may work with newer versions, but that is not gauranteed.
 - Install `faiss` with cpu version
 	```
-	conda install faiss-cpu
+	pip install faiss-cpu
 	```
 - Install 'torch-cluster' with the corrreponding torch and cuda version
 	```
-	pip install torch-cluster -c pyg
+	conda install torch-cluster -c pyg
 	```
 - Install dependencies
     ```
