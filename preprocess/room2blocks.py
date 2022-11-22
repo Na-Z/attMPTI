@@ -70,7 +70,7 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='[Preprocessing] Split rooms into blocks')
-    parser.add_argument('--data_path', default='../datasets/S3DIS/scenes')
+    parser.add_argument('--data_path', default='../datasets/S3DIS/')
     parser.add_argument('--dataset', default='s3dis', metavar='bs', help='s3dis|scannet')
     parser.add_argument('--block_size', type=float, default=1, metavar='s', help='size of each block')
     parser.add_argument('--stride', type=float, default=1, help='stride of sliding window for splitting rooms, '
@@ -87,7 +87,7 @@ if __name__ == '__main__':
     SAVE_PATH = os.path.join(os.path.dirname(DATA_PATH), 'blocks_bs{0}_s{1}'.format(BLOCK_SIZE, STRIDE), 'data')
     if not os.path.exists(SAVE_PATH): os.makedirs(SAVE_PATH)
 
-    file_paths = glob.glob(os.path.join(DATA_PATH, 'data', '*.npy'))
+    file_paths = glob.glob(os.path.join(DATA_PATH, 'scenes', 'data', '*.npy'))
     print('{} scenes to be split...'.format(len(file_paths)))
 
     block_cnt = 0
