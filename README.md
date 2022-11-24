@@ -22,8 +22,8 @@ on two benchmark datasets.
 
 
 ## Installation
-- Install `python` --This repo is tested with `python 3.10`.
-- Install `pytorch` with CUDA -- This repo is tested with `torch 1.13.0`, `CUDA 11.1`. 
+- Install `python` --This repo is tested with `python 3.10.8`.
+- Install `pytorch` with CUDA -- This repo is tested with `torch 1.13.0`, `CUDA 11.6`. 
 It may work with newer versions, but that is not gauranteed.
 - Install `faiss` with cpu version
 	```
