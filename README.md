@@ -31,7 +31,7 @@ It may work with newer versions, but that is not gauranteed.
 	```
 - Install 'torch-cluster' with the corrreponding torch and cuda version
 	```
-	conda install torch-cluster -c pyg
+	conda install pytorch-cluster -c pyg
 	```
 - Install dependencies
     ```
