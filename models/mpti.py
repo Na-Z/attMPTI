@@ -247,10 +247,10 @@ class MultiPrototypeTransductiveInference(nn.Module):
         knn_feat = torch.gather(node_feat, dim=0, index=knn_idx).contiguous().view(self.num_nodes, k, self.feat_dim)
 
         if method == 'cosine':
-            knn_similarity = F.cosine_similarity(node_feat[:,None,:], knn_feat, dim=2).cuda()
+            knn_similarity = F.cosine_similarity(node_feat[:,None,:], knn_feat, dim=2)
         elif method == 'gaussian':
             dist = F.pairwise_distance(node_feat[:, None, :], knn_feat, p=2)
-            knn_similarity = torch.exp(-0.5*(dist/self.sigma)**2).cuda()
+            knn_similarity = torch.exp(-0.5*(dist/self.sigma)**2)
         else:
             raise NotImplementedError('Error! Distance computation method (%s) is unknown!' %method)
 
