@@ -31,11 +31,11 @@ It may work with newer versions, but that is not gauranteed.
 	```
 - Install 'torch-cluster' with the corrreponding torch and cuda version
 	```
-	conda install pytorch-cluster -c pyg
+	pip install torch-cluster
 	```
 - Install dependencies
     ```
-    pip install tensorboard h5py transforms3d
+    pip install tensorboard h5py transforms3d matplotlib
     ```
 
 ## Usage
